@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Basketball_WebAPI.Models.Game>
+
+@{
+    ViewBag.Title = "Team B Members";
+}
+
+<h2>Team A</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("Back to All Members", "Index", "Members")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fee)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GameID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GameID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GameID })
+            </td>
+        </tr>
+    }
+
+</table>
